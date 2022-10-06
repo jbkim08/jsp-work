@@ -30,8 +30,11 @@ public class Controller extends HttpServlet {
 		User user = new User(email, password);
 		System.out.println(user);
 		if(user.validate()) {
+			//localhost:8080/Forms
+			request.setAttribute("email", email); //request객체에 email을 전달
 			request.getRequestDispatcher("/welcome.jsp").forward(request, response);
 		} else {
+			request.setAttribute("error", user.getMessage());
 			request.getRequestDispatcher("/form1.jsp").forward(request, response);
 		}
 	}

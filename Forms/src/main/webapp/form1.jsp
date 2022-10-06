@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+${error}
 <form action="/Forms/Controller" method="post">
 이메일 : <input type="email" name="email"> <br>
 패스워드 : <input type="password" name="password"> <br>
