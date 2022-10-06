@@ -7,10 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<jsp:useBean id="user" class="beans.User" />
-<jsp:setProperty property="*" name="user"/>
-<p>유저 : <%=user.getEmail() %>
-<p>비번 : <%=user.getPassword() %>
+<p>세션의 유지시간(초)
+<P><%= session.getMaxInactiveInterval() %>
 </body>
 </html>
