@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="/Forms/formHandler.jsp" method="get">
+<form action="/Forms/formHandler.jsp" method="post">
 <input type="text" name="user" placeholder="유저"> <br>
 <input type="password" name="password" placeholder="비번"> <br>
 <input type="submit" value="전송">

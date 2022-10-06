@@ -8,9 +8,7 @@
 </head>
 <body>
 
-<jsp:useBean id="user" class="beans.User" />
-<jsp:setProperty property="*" name="user"/>
-<p>유저 : <%=user.getUser() %>
-<p>비번 : <%=user.getPassword() %>
+<h1>반갑습니다.로그인 되었습니다.</h1>
+
 </body>
 </html>
