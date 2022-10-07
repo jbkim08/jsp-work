@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<footer class="footer">
+	<div class="container">
+		<p>Copyright © 2022 부산IT교육센터 All rights reserved.</p>
+		<address>Contact 070-1234-5678</address>
+	</div>
+</footer>
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

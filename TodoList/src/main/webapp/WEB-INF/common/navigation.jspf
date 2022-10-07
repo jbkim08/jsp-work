@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<nav class="navbar navbar-default">
+	<div class="container">
+		<a href="/todoList" class="navbar-brand">🎯</a>
+
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="/todoList/list-todos.do">Todos</a></li>
+			<li><a href="https://velog.io/@drv98">Blog</a></li>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+				<%
+					if (session.getAttribute("name") == null) {
+				%>
+				<li><a href="/todoList/login.do">Login</a></li>
+				<%
+					} else {
+				%>
+				<li><a href="/todoList/logout.do">Logout</a></li>
+				<%
+					}
+				%>
+		</ul>
+	</div>
+</nav>
