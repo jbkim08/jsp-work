@@ -15,7 +15,6 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private LoginService service = new LoginService();
-	private TodoService todoService = new TodoService();
        
 	//get일때 로그인 페이지로!
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,10 +31,8 @@ public class LoginServlet extends HttpServlet {
 		boolean isValidUser = service.isUserValid(name, password);
 		
 		if(isValidUser) {
-			request.setAttribute("name", name);
-			request.setAttribute("todos", todoService.getTodos());
-			request.getRequestDispatcher("/WEB-INF/view/welcome.jsp")
-			.forward(request, response);
+			request.getSession().setAttribute("name", name);
+			response.sendRedirect("/todoList/todo.do");
 		} else {
 			request.setAttribute("errorMessage", "Invalid Credentials!!");
 			//이름과 비밀번호가 맞지 않으므로 다시 login 페이지로 보내기	
