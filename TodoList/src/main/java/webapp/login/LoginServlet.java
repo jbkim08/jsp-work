@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 		
 		if(isValidUser) {
 			request.getSession().setAttribute("name", name);
-			response.sendRedirect("/todoList/todo.do");
+			response.sendRedirect("/todoList/list-todos.do");
 		} else {
 			request.setAttribute("errorMessage", "Invalid Credentials!!");
 			//이름과 비밀번호가 맞지 않으므로 다시 login 페이지로 보내기	
