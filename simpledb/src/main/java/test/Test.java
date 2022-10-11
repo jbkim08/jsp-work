@@ -16,7 +16,8 @@ public class Test {
 		//Employee employee = dao.get(3);
 		//System.out.println(employee);
 		
-		dao.save(new Employee("펭수","지원부","2000-12-12"));
+		//dao.save(new Employee("펭수","지원부","2000-12-12"));
+		dao.delete(6);
 		
 		List<Employee> list = dao.get();		
 		list.forEach(e -> System.out.println(e));		

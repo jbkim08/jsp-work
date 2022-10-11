@@ -69,11 +69,15 @@ public class EmployeeDAOImple implements EmployeeDAO {
 	public boolean save(Employee e) {
 		boolean flag = false;
 		try {
-			String sql = "INSERT INTO tbl_employee(name, department, dob) VALUES"
-					+ "('"+e.getName()+"', '"+e.getDepartment()+"', '"+e.getDob()+"')";
+			String sql = "INSERT INTO tbl_employee(name, department, dob) "
+					+ "VALUES(?,?,?)";
+				
 			connection = DBConnectionUtil.openConnection();
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.executeUpdate();
+			preparedStatement.setString(1, e.getName());
+			preparedStatement.setString(2, e.getDepartment());
+			preparedStatement.setString(3, e.getDob());
+			preparedStatement.executeUpdate(); //결과가 없을경우 executeUpdate()
 			flag = true; //입력하는데 문제 없음
 		}catch(SQLException ex) {
 			ex.printStackTrace();
@@ -84,8 +88,19 @@ public class EmployeeDAOImple implements EmployeeDAO {
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean flag = false;
+		try {
+			String sql = "Delete FROM tbl_employee where id=?";
+			connection = DBConnectionUtil.openConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			preparedStatement.executeUpdate();
+			flag = true;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return flag;
+
 	}
 
 	@Override
