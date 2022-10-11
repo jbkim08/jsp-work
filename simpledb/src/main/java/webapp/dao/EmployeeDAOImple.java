@@ -104,9 +104,23 @@ public class EmployeeDAOImple implements EmployeeDAO {
 	}
 
 	@Override
-	public boolean update(Employee employee) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(Employee e) {
+		boolean flag = false;
+		try {
+			String sql = "UPDATE tbl_employee SET name=?, "
+					+ "department=?, dob=? where id=?";
+			connection = DBConnectionUtil.openConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, e.getName());
+			preparedStatement.setString(2, e.getDepartment());
+			preparedStatement.setString(3, e.getDob());
+			preparedStatement.setInt(4, e.getId());
+			preparedStatement.executeUpdate();
+			flag = true;
+		}catch(SQLException e1) {
+			e1.printStackTrace();
+		}
+		return flag;
 	}
 
 }

@@ -8,9 +8,7 @@ public class Employee {
 	private String dob; 	    //생년월일
 	
 	public Employee() {}
-	
-	
-	
+		
 	public Employee(String name, String department, String dob) {
 		super();
 		this.name = name;
@@ -18,7 +16,12 @@ public class Employee {
 		this.dob = dob;
 	}
 
-
+	public Employee(Integer id, String name, String department, String dob) {
+		this.id = id;
+		this.name = name;
+		this.department = department;
+		this.dob = dob;
+	}
 
 	public Integer getId() {
 		return id;
