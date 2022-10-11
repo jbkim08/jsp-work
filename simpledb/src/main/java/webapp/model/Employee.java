@@ -7,6 +7,19 @@ public class Employee {
 	private String department;  //부서	
 	private String dob; 	    //생년월일
 	
+	public Employee() {}
+	
+	
+	
+	public Employee(String name, String department, String dob) {
+		super();
+		this.name = name;
+		this.department = department;
+		this.dob = dob;
+	}
+
+
+
 	public Integer getId() {
 		return id;
 	}

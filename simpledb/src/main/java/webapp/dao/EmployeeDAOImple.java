@@ -3,6 +3,7 @@ package webapp.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class EmployeeDAOImple implements EmployeeDAO {
 				employee.setDob(resultSet.getString("dob"));
 				list.add(employee); //직원리스트에 한명의 직원을 추가
 			}		
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
@@ -45,14 +46,40 @@ public class EmployeeDAOImple implements EmployeeDAO {
 
 	@Override
 	public Employee get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Employee employee = null;
+		try {
+			employee = new Employee();
+			String sql = "SELECT * FROM tbl_employee where id="+ id;
+			connection = DBConnectionUtil.openConnection();
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(sql);
+			if(resultSet.next()) {
+				employee.setId(resultSet.getInt("id"));
+				employee.setName(resultSet.getString("name"));
+				employee.setDepartment(resultSet.getString("department"));
+				employee.setDob(resultSet.getString("dob"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return employee;
 	}
 
 	@Override
-	public boolean save(Employee employee) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean save(Employee e) {
+		boolean flag = false;
+		try {
+			String sql = "INSERT INTO tbl_employee(name, department, dob) VALUES"
+					+ "('"+e.getName()+"', '"+e.getDepartment()+"', '"+e.getDob()+"')";
+			connection = DBConnectionUtil.openConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.executeUpdate();
+			flag = true; //입력하는데 문제 없음
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+		}
+		return flag;
+
 	}
 
 	@Override
