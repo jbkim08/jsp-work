@@ -48,8 +48,8 @@ public class EmployeeController extends HttpServlet {
 				listEmployee(request, response);
 				break;
 				
-	}			
-}
+		}			
+	}
 	
 	private void listEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		//DB에있는 모든 직원데이터를 불러와서 화면 employee-list.jsp에 전달
