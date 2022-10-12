@@ -21,6 +21,7 @@
 				<p>
 					<a class="btn btn-primary" href="views/employee-form.jsp">직원
 						추가</a>
+					<a class="btn btn-warning" href="logout.jsp">로그아웃</a>
 				</p>
 
 				<table class="table table-striped table-bordered">
