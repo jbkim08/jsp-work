@@ -64,9 +64,14 @@ public class EmployeeController extends HttpServlet {
 		
 	}
 
-	private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String id = request.getParameter("id");
 		
+		if(empDAO.delete(Integer.parseInt(id))) {
+			request.setAttribute("NOTIFICATION", "성공적으로 삭제됨!");
+		}
+		
+		listEmployee(request, response);
 	}
 	
 	
