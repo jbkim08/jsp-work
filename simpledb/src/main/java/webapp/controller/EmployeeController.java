@@ -59,9 +59,14 @@ public class EmployeeController extends HttpServlet {
 			.forward(request, response);	
 	}
 	
-	private void getSingleEmployee(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void getSingleEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
 		
+		Employee e = empDAO.get(Integer.parseInt(id));
+		request.setAttribute("employee", e);
+		
+		request.getRequestDispatcher("/views/employee-form.jsp")
+		.forward(request, response);		
 	}
 
 	private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -77,15 +82,24 @@ public class EmployeeController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
+	
 		Employee e = new Employee();
 		e.setName(request.getParameter("name"));
 		e.setDepartment(request.getParameter("department"));
 		e.setDob(request.getParameter("dob"));
-		//DB에 입력한 직원을 저장
-		if(empDAO.save(e)) {
-			request.setAttribute("NOTIFICATION", "새 직원이 성공적으로 저장됨!");
+		
+		if(id.isEmpty() || id == null) {		
+			//id가 없으면 새 직원을 DB에 저장한다.
+			if(empDAO.save(e)) {
+				request.setAttribute("NOTIFICATION", "새 직원이 성공적으로 저장됨!");
+			} 
 		} else {
-			request.setAttribute("NOTIFICATION", "새 직원이 저장 에러!");
+			//id가 있으면 업데이트 한다.
+			e.setId(Integer.parseInt(id));
+			if(empDAO.update(e)) {
+				request.setAttribute("NOTIFICATION", "직원이 업데이트 됨!");
+			}
 		}
 		
 		listEmployee(request, response);
