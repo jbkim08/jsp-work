@@ -19,8 +19,8 @@
 				<p>${NOTIFICATION}</p>
 
 				<p>
-					<button class="btn btn-primary" onclick="window.location.href = 'views/employee-form.jsp'">직원
-						추가</button>
+					<a class="btn btn-primary" href="views/employee-form.jsp">직원
+						추가</a>
 				</p>
 
 				<table class="table table-striped table-bordered">

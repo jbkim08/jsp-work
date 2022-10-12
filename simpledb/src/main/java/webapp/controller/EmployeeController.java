@@ -48,7 +48,7 @@ public class EmployeeController extends HttpServlet {
 				listEmployee(request, response);
 				break;
 				
-	}
+	}			
 }
 	
 	private void listEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -68,6 +68,29 @@ public class EmployeeController extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Employee e = new Employee();
+		e.setName(request.getParameter("name"));
+		e.setDepartment(request.getParameter("department"));
+		e.setDob(request.getParameter("dob"));
+		//DB에 입력한 직원을 저장
+		if(empDAO.save(e)) {
+			request.setAttribute("NOTIFICATION", "새 직원이 성공적으로 저장됨!");
+		} else {
+			request.setAttribute("NOTIFICATION", "새 직원이 저장 에러!");
+		}
+		
+		listEmployee(request, response);
+	}
 
 }
+
+
+
+
+
+
 
