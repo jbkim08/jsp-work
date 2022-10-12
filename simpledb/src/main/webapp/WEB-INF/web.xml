@@ -6,7 +6,7 @@
 	<display-name>simpledb</display-name>
 	<!-- 기본페이지 설정 -->
 	<welcome-file-list>
-		<welcome-file>EmployeeController</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
 	<!-- 한글설정 필터추가 -->
