@@ -69,7 +69,7 @@
 						'paginate': { 'previous': '이전', 'next': '다음' },
 						"info": "페이지 _PAGE_ / _PAGES_",
 						'infoEmpty': '데이터가 없습니다.',
-						"infoFiltered": "(전체 페이지 _MAX_ 에서 검색)",
+						"infoFiltered": "(전체 데이터 _MAX_ 에서 검색)",
 						'thousands': ','
 					},
 					'lengthMenu': [5, 10, 25],
