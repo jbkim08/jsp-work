@@ -264,5 +264,68 @@ public class BoardDAO {
 		}
 		
 	}
+	
+	//update 와 delete 시 필요한 패스워드값을 리턴해주는 메소드
+	public String getPass(int num){
 
+		Connection conn = getcon();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		//리턴할 변수 객체 선언
+		String pass ="";
+		
+		System.out.println(num);
+		try{
+			//쿼리준비
+			String sql ="select password from board where num =?";
+			//쿼리실행할 객체 선언
+			pstmt =conn.prepareStatement(sql);
+			pstmt.setInt(1,  num);
+			rs=pstmt.executeQuery();
+			//패스워드값을 저장
+			if(rs.next()){
+				pass=rs.getString(1);
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			//자원 반납
+			closeAll(rs, pstmt, conn);
+		}
+		return pass;
+	}	
+
+	//하나의 게시글을 수정하는 메소드
+	public void updateBoard(BoardBean bean){
+		
+		Connection conn = getcon();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			//쿼리 준비
+			String sql ="update board set subject=? , CONTENT=? where num=?";
+			pstmt =conn.prepareStatement(sql);
+			pstmt.setString(1, bean.getSubject());
+			pstmt.setString(2, bean.getContent());
+			pstmt.setInt(3, bean.getNum());
+			pstmt.executeUpdate();
+						
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			//자원 반납
+			closeAll(rs, pstmt, conn);
+		}
+	}
+	
+
+	
 }
+
+
+
+
+
