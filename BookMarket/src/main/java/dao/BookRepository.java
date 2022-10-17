@@ -67,6 +67,11 @@ public class BookRepository {
 				
 		return bookById;
 	}
+	
+	// 새 책을 추가하는 메서드
+	public void addBook(Book book) {
+		listOfBooks.add(book);
+	}
 }
 
 
