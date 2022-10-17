@@ -53,7 +53,21 @@ public class BookRepository {
 	public ArrayList<Book> getAllBooks(){
 		return listOfBooks;
 	}
-
+	
+	// 책ID에 해당하는 한권의 책 객체를 리턴
+	public Book getBookById(String bookId) {
+		Book bookById = null; //id로 찾은 책
+		
+		for(int i=0; i< listOfBooks.size(); i++) {
+			Book book = listOfBooks.get(i);
+			if(book != null && book.getBookId() != null && book.getBookId().equals(bookId)) {
+				bookById = book;
+				break; //책을 찾았으면 반복문 종료
+			}
+		}
+				
+		return bookById;
+	}
 }
 
 
