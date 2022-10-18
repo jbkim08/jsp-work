@@ -21,6 +21,7 @@ public class BookRepository {
 		html.setReleaseDate("2018/03/02");
 		html.setTotalPages(288);
 		html.setUnitsInStock(1000);
+		html.setFilename("ISBN1234.jsp");
 
 		Book java = new Book("ISBN1235", "쉽게 배우는 자바 프로그래밍", 27000);
 		java.setAuthor("우종정");
@@ -32,6 +33,7 @@ public class BookRepository {
 		java.setReleaseDate("2017/08/02");
 		java.setTotalPages(692);
 		java.setUnitsInStock(1000);
+		java.setFilename("ISBN1235.jsp");
 
 		Book spring = new Book("ISBN1236", "스프링4 입문", 27000);
 		spring.setAuthor("하세가와 유이치, 오오노 와타루, 토키 코헤이(권은철, 전민수)");
@@ -43,6 +45,7 @@ public class BookRepository {
 		spring.setReleaseDate("2017/11/01");
 		spring.setTotalPages(520);
 		spring.setUnitsInStock(1000);
+		spring.setFilename("ISBN1236.jsp");
 
 		listOfBooks.add(html);
 		listOfBooks.add(java);

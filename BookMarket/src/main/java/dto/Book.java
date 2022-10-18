@@ -13,7 +13,9 @@ public class Book {
 	private long totalPages; 	// 페이지 수
 	private String releaseDate;	 // 출판일(월/년)
 	private String condition; 	// 신규 도서 or 중고 도서 or E-Book
+	private String filename;	//이미지 파일명
 	
+
 	//생성자 2개(기본, 변수3개)
 	public Book() {
 
@@ -23,6 +25,15 @@ public class Book {
 		this.bookId = bookId;
 		this.name = name;
 		this.unitPrice = unitPrice;
+	}
+	
+	
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 
 	public String getBookId() {
