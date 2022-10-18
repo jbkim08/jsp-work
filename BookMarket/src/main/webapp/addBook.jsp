@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <title>도서 등록</title>
    	<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+   	<script src="./resources/js/validation.js"></script>
   </head>
   <body>
 	<%@ include file="menu.jsp"%>
@@ -96,7 +97,7 @@
 			</div>
 			<div class="form-group row">
 				<div class="col-sm-offset-2 col-sm-10 ">
-					<input type="submit" class="btn btn-primary" value="등록">
+					<input type="button" onclick="CheckAddBook()" class="btn btn-primary" value="등록">
 				</div>
 			</div>
 		</form>
