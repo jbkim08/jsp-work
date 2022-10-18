@@ -15,7 +15,7 @@
 	</div>
 	
 	<div class="container">
-		<form name="newBook" action="./processAddBook.jsp"
+		<form name="newBook" action="./processAddBook.jsp" enctype="multipart/form-data"
 			class="form-horizontal" method="post">
 			<div class="form-group row">
 				<label class="col-sm-2">도서코드</label>
@@ -86,6 +86,12 @@
 					<input type="radio" name="condition" value="New" checked>신규도서
 					<input type="radio" name="condition" value="Old">중고도서
 					<input type="radio" name="condition" value="EBook">E-Book
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2">이미지</label>
+				<div class="col-sm-5">
+					<input type="file" name="bookImage" class="form-control">
 				</div>
 			</div>
 			<div class="form-group row">
