@@ -25,7 +25,10 @@
 				Book book = listOfBooks.get(i);
 		%>
 		<div class="row">
-			<div class="col-md-10">
+			<div class="col-md-3" align="center">
+				<img src="/upload/<%=book.getFilename()%>" style="width: 50%">
+			</div>
+			<div class="col-md-7">
 				<p><h5><b>[<%=book.getCategory()%>] <%=book.getName()%></b></h5>
 				<p style="padding-top: 20px"><%=book.getDescription().substring(0, 100)%>...
 				<p><%=book.getAuthor()%> | <%=book.getPublisher()%> | <%=book.getUnitPrice()%>원
