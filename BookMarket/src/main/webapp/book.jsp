@@ -7,10 +7,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>도서 상세 정보</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
   </head>
   <body>
 	<%@ include file="menu.jsp"%>
